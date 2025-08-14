@@ -377,3 +377,169 @@ const completedByDate = data?.completedByDate ?? {};
 ---
 
 > If you diverge in your DB schema, update `services/supabasePlanService.ts` and the two aggregation queries accordingly.
+
+
+Build & Release Playbook (iOS-first)
+
+This section should live at the end of docs/ARCHITECTURE.md.
+
+⸻
+
+Toolchain & Preconditions
+	•	macOS: latest stable Xcode (no beta) — set with sudo xcode-select -s /Applications/Xcode.app.
+	•	CPU/Terminal: run Terminal in arm64 (not Rosetta). Check with uname -m (should be arm64).
+	•	Node: v20 LTS via nvm.
+	•	CocoaPods: installed via Homebrew (preferred): brew install cocoapods.
+	•	Expo CLI: npm i -g eas-cli (for cloud builds) and project-local expo.
+
+Environment variables (.env.local):
+
+EXPO_PUBLIC_SUPABASE_URL=...
+EXPO_PUBLIC_SUPABASE_ANON_KEY=...
+
+
+⸻
+
+Local Dev Build (Simulator & Device)
+
+1) Clean everything
+
+# Xcode caches
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+
+# JS caches
+watchman watch-del-all 2>/dev/null || true
+rm -rf node_modules package-lock.json yarn.lock pnpm-lock.yaml
+npm i
+
+# Recreate native project
+npx expo prebuild --clean
+
+cd ios
+pod deintegrate && rm -rf Pods Podfile.lock
+pod install
+cd ..
+
+2) Run on a simulator
+
+npx expo run:ios --simulator "iPhone 16 Pro"
+
+3) Run on a physical device (recommended)
+
+sudo xcode-select -s /Applications/Xcode.app
+npx expo run:ios --device   # pick your iPhone in the prompt
+
+If you have multiple Xcode versions (betas), always point to the stable app.
+
+⸻
+
+TestFlight (friends & family)
+
+This is the only sane way to share a “download link” on iOS without a full App Store launch.
+
+	1.	Ensure unique bundle id in app.json:
+
+{
+  "expo": {
+    "ios": { "bundleIdentifier": "com.yourname.strive" },
+    "version": "0.1.0",
+    "ios": { "buildNumber": "1" }
+  }
+}
+
+	2.	Login & configure EAS:
+
+npm i -g eas-cli
+eas login
+
+	3.	Build for iOS (Production for TestFlight):
+
+eas build --platform ios
+
+	4.	Submit to Apple:
+
+eas submit --platform ios
+
+	5.	In App Store Connect → TestFlight:
+	•	Add Internal testers (instant).
+	•	Enable External testing and share the public invite link after the first beta review.
+
+After the binary is on TestFlight, ship JS-only updates with:
+
+eas update --branch production --message "Fix week heatmap popover"
+
+
+⸻
+
+Troubleshooting (iOS)
+
+A) ReactCodegen / “[CP-User] Generate Specs” failures
+
+Symptoms: build fails in Pods → ReactCodegen.
+
+Quick checks:
+	1.	Terminal arch is arm64 (uname -m).
+	2.	Node v20 in PATH for Xcode scripts. If Xcode can’t find Node, export PATH in ~/.zshrc:
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.nvm/versions/node/$(node -v)/bin:$PATH"
+
+	3.	Clean steps (above), then reopen Xcode (xed ios) and build once inside Xcode to read the full script log.
+
+If still failing, add a minimal post_install to normalize build settings:
+
+# ios/Podfile
+post_install do |installer|
+  installer.pods_project.targets.each do |t|
+    t.build_configurations.each do |config|
+      # Ensure Node/Hermes codegen sees a consistent setting
+      config.build_settings['DEFINES_MODULE'] = 'YES'
+    end
+  end
+end
+
+Then cd ios && pod install.
+
+If you previously added use_frameworks!, prefer removing it or use: use_frameworks! :linkage => :static.
+
+B) “Can’t merge pod_target_xcconfig … DEFINES_MODULE” warnings
+	•	These are often benign. If the build succeeds, you can ignore them.
+	•	If they cause build failures, use the post_install snippet above to force a consistent value, then reinstall Pods.
+
+C) Hermes script phase notice
+	•	hermes-engine has added 1 script phase is informational. Safe to proceed.
+
+D) Multiple matching destinations (sim archs)
+	•	Explicitly pick a simulator: --simulator "iPhone 16 Pro".
+	•	Ensure Terminal is not running under Rosetta (avoid x86_64).
+
+⸻
+
+Versioning & Metadata
+	•	Increment expo.version and ios.buildNumber each TestFlight build.
+	•	Fill App Privacy in App Store Connect (collects account id + planned/completed activities).
+	•	Provide minimal Terms/Privacy links.
+
+⸻
+
+Release Checklists
+
+Preflight
+	•	.env.local present and excluded from VCS
+	•	RLS policies verified for user isolation
+	•	App icon & display name set
+
+Build
+	•	npx expo prebuild --clean
+	•	pod install
+	•	eas build --platform ios
+
+Distribute
+	•	eas submit --platform ios
+	•	Add testers / share public link
+
+⸻
+
+Notes for Future Android Support
+	•	Mirror this process with npx expo run:android and eas build --platform android.
+	•	Keep codegen/Gradle caches clean between Node upgrades.

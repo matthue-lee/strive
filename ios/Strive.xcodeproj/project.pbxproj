@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		15D5B7967DB6478E4669DDE1 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42C86EDD710CCA3D279AC6 /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		6C7DF268B405229168CCEB7F /* libPods-Strive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1BF7F44F102B95D61A7598 /* libPods-Strive.a */; };
-		AE8FC4D60DAF9604F5298ACC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C7650CFD301D366AF0D8C088 /* PrivacyInfo.xcprivacy */; };
+		9C67AD36748AA4EDB808D922 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27F65ADA08B7E362CC3371E /* ExpoModulesProvider.swift */; };
+		A4DC0591BF0F74D22051AEBA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C1C7BD6094432BEBFDDBDD58 /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		BF9A89E5D0BE837687CB0471 /* libPods-Strive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D2FEB7DEFCBB480D00D39 /* libPods-Strive.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0CCC90EC4CFA402D7B42C8 /* Pods-Strive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strive.debug.xcconfig"; path = "Target Support Files/Pods-Strive/Pods-Strive.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Strive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Strive/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Strive/Info.plist; sourceTree = "<group>"; };
-		4A42C86EDD710CCA3D279AC6 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Strive/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		94406AACCC3C906FBC0781F0 /* Pods-Strive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strive.debug.xcconfig"; path = "Target Support Files/Pods-Strive/Pods-Strive.debug.xcconfig"; sourceTree = "<group>"; };
+		62F18FFD606461A5221466D8 /* Pods-Strive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strive.release.xcconfig"; path = "Target Support Files/Pods-Strive/Pods-Strive.release.xcconfig"; sourceTree = "<group>"; };
+		8F5D2FEB7DEFCBB480D00D39 /* libPods-Strive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Strive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Strive/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BC1BF7F44F102B95D61A7598 /* libPods-Strive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Strive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7650CFD301D366AF0D8C088 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Strive/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C1C7BD6094432BEBFDDBDD58 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Strive/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D27F65ADA08B7E362CC3371E /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Strive/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Strive/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Strive-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Strive-Bridging-Header.h"; path = "Strive/Strive-Bridging-Header.h"; sourceTree = "<group>"; };
-		F7DBACCC1F309CD9D23A80EC /* Pods-Strive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Strive.release.xcconfig"; path = "Target Support Files/Pods-Strive/Pods-Strive.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,21 +37,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C7DF268B405229168CCEB7F /* libPods-Strive.a in Frameworks */,
+				BF9A89E5D0BE837687CB0471 /* libPods-Strive.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0048C7A499F3B05968D97D45 /* Pods */ = {
+		01AE9C4427A7CDFE5278407F /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				94406AACCC3C906FBC0781F0 /* Pods-Strive.debug.xcconfig */,
-				F7DBACCC1F309CD9D23A80EC /* Pods-Strive.release.xcconfig */,
+				3253ECC96D4BD68D6E6B5D2B /* Strive */,
 			);
-			name = Pods;
-			path = Pods;
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* Strive */ = {
@@ -63,18 +61,36 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				C7650CFD301D366AF0D8C088 /* PrivacyInfo.xcprivacy */,
+				C1C7BD6094432BEBFDDBDD58 /* PrivacyInfo.xcprivacy */,
 			);
 			name = Strive;
+			sourceTree = "<group>";
+		};
+		1FF988CF28ED831057AC0BCF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E0CCC90EC4CFA402D7B42C8 /* Pods-Strive.debug.xcconfig */,
+				62F18FFD606461A5221466D8 /* Pods-Strive.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				BC1BF7F44F102B95D61A7598 /* libPods-Strive.a */,
+				8F5D2FEB7DEFCBB480D00D39 /* libPods-Strive.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3253ECC96D4BD68D6E6B5D2B /* Strive */ = {
+			isa = PBXGroup;
+			children = (
+				D27F65ADA08B7E362CC3371E /* ExpoModulesProvider.swift */,
+			);
+			name = Strive;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -91,8 +107,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				0048C7A499F3B05968D97D45 /* Pods */,
-				CF91F71352270052263BAEAD /* ExpoModulesProviders */,
+				01AE9C4427A7CDFE5278407F /* ExpoModulesProviders */,
+				1FF988CF28ED831057AC0BCF /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -116,22 +132,6 @@
 			path = Strive/Supporting;
 			sourceTree = "<group>";
 		};
-		CF91F71352270052263BAEAD /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				D9D7D5B90D3A92206917072C /* Strive */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
-		D9D7D5B90D3A92206917072C /* Strive */ = {
-			isa = PBXGroup;
-			children = (
-				4A42C86EDD710CCA3D279AC6 /* ExpoModulesProvider.swift */,
-			);
-			name = Strive;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,14 +139,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Strive" */;
 			buildPhases = (
-				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				98B602AC970375B4EE969218 /* [Expo] Configure project */,
+				CB7E5F1DF243699BAC643847 /* [CP] Check Pods Manifest.lock */,
+				D4AED63D7E5A1AED97079B39 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				16565D0780840CFD1CA48B68 /* [CP] Embed Pods Frameworks */,
+				F428E69305048739D6B6537F /* [CP] Embed Pods Frameworks */,
+				8FBE5B215F0611CFADEA7BB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				AE8FC4D60DAF9604F5298ACC /* PrivacyInfo.xcprivacy in Resources */,
+				A4DC0591BF0F74D22051AEBA /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,47 +218,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Strive-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		16565D0780840CFD1CA48B68 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Strive/Pods-Strive-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Strive/Pods-Strive-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
+		8FBE5B215F0611CFADEA7BB6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -340,7 +300,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Strive/Pods-Strive-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98B602AC970375B4EE969218 /* [Expo] Configure project */ = {
+		CB7E5F1DF243699BAC643847 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Strive-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4AED63D7E5A1AED97079B39 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -359,6 +341,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Strive/expo-configure-project.sh\"\n";
 		};
+		F428E69305048739D6B6537F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Strive/Pods-Strive-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Strive/Pods-Strive-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -367,7 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				15D5B7967DB6478E4669DDE1 /* ExpoModulesProvider.swift in Sources */,
+				9C67AD36748AA4EDB808D922 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +376,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94406AACCC3C906FBC0781F0 /* Pods-Strive.debug.xcconfig */;
+			baseConfigurationReference = 0E0CCC90EC4CFA402D7B42C8 /* Pods-Strive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -412,7 +412,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F7DBACCC1F309CD9D23A80EC /* Pods-Strive.release.xcconfig */;
+			baseConfigurationReference = 62F18FFD606461A5221466D8 /* Pods-Strive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
