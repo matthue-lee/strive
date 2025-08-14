@@ -1,41 +1,39 @@
-import { Feather } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export function WeekOverviewCard({
-  weekNumber,
-  completedDays,
+  completedActivities,
+  totalPlannedActivities,
   totalDistance,
   targetDistance = 34.1,
   onPress,
 }: {
-  weekNumber: number;
-  completedDays: number;
+  completedActivities: number;
+  totalPlannedActivities: number;
   totalDistance: number;
   targetDistance?: number;
   onPress?: () => void;
-}) {
-  const dayIndicators = Array.from({ length: 7 }, (_, i) => (
-    <View
-      key={i}
-      style={[
-        styles.dayDash,
-        i < completedDays ? styles.dayCompleted : styles.dayPending,
-      ]}
-    />
-  ));
+}){
+const activityIndicators = Array.from({ length: totalPlannedActivities }, (_, i) => (
+  <View
+    key={i}
+    style={[
+      styles.dayDash,
+      i < completedActivities ? styles.dayCompleted : styles.dayPending,
+    ]}
+  />
+));
+
 
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={styles.header}>
-        <Text style={styles.title}>Week {weekNumber} Overview</Text>
-        <Feather name="chevron-right" size={20} color="#444" />
+        <Text style={styles.title}>Week Overview</Text>
       </View>
 
-      <View style={styles.dashContainer}>{dayIndicators}</View>
-
+    <View style={styles.dashContainer}>{activityIndicators}</View>
       <View style={styles.footer}>
-        <Text style={styles.metric}>Workouts: <Text style={styles.bold}>{completedDays}/7</Text></Text>
-        <Text style={styles.metric}>Distance: <Text style={styles.bold}>{totalDistance.toFixed(1)}/{targetDistance}KM</Text></Text>
+        <Text style={styles.metric}>Workouts: <Text style={styles.bold}>{completedActivities}/{totalPlannedActivities}</Text></Text>
+        {/* <Text style={styles.metric}>Distance: <Text style={styles.bold}>{totalDistance.toFixed(1)}/{targetDistance}KM</Text></Text> */}
       </View>
     </TouchableOpacity>
   );

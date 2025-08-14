@@ -1,9 +1,5 @@
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { format } from 'date-fns';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const CARD_MARGIN = 8;
@@ -25,11 +21,6 @@ export function WeekBreakdownCard({ startDate, activities }: Props) {
   const totalCompleted = activities.reduce((sum, a) => sum + a.count, 0);
   const totalTarget = activities.reduce((sum, a) => sum + a.target, 0);
 
-  const formatDate = (date: Date) =>
-    `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1)
-      .toString()
-      .padStart(2, '0')}`;
-
   const renderProgressDots = (count: number, total: number) =>
     Array.from({ length: total }).map((_, i) => (
       <View
@@ -41,10 +32,11 @@ export function WeekBreakdownCard({ startDate, activities }: Props) {
       />
     ));
 
-
   return (
     <View style={styles.card}>
-      <Text style={styles.weekLabel}>Week of: {formatDate(startDate)}</Text>
+      <Text style={styles.weekLabel}>
+        Week of: {format(startDate, 'dd/MM/yyyy')}
+      </Text>
       <Text style={styles.totalCount}>
         {totalCompleted}/{totalTarget}
       </Text>
@@ -68,7 +60,6 @@ export function WeekBreakdownCard({ startDate, activities }: Props) {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   card: {

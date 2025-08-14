@@ -1,12 +1,15 @@
-import { TodaysWorkoutCard } from '@/components/TodaysWorkoutCard';
+// app/(tabs)/index.tsx
+import TodaysWorkoutCard from '@/components/TodaysWorkoutCard';
 import { WeekBreakdownCard } from '@/components/WeekBreakdownCard';
 import { WeekOverviewCard } from '@/components/weekOverviewCard';
-import getWeeklyActivityBreakdown from '@/library/getWeeklyBreakdown';
-import { usePlanStore } from '@/store/usePlanStore';
+import { usePlan } from '@/hooks/plan';
+import { useWeeklyBreakdown } from '@/hooks/weekly';
+import getWeekDateStrings from '@/library/getWeekDateStrings';
 import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { format } from 'date-fns';
+import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 
 function getIconForLabel(label: string) {
   switch (label) {
@@ -17,32 +20,52 @@ function getIconForLabel(label: string) {
     case 'YOGA':
       return <MaterialCommunityIcons name="yoga" size={18} color="black" />;
     case 'SURF':
-      return <MaterialCommunityIcons name="yoga" size={18} color="black" />;
+      return <MaterialCommunityIcons name="wave" size={18} color="black" />;
     case 'REST':
-      return <MaterialCommunityIcons name="yoga" size={18} color="black" />;
+      return <MaterialCommunityIcons name="sleep" size={18} color="black" />;
     default:
       return <MaterialCommunityIcons name="help" size={18} color="black" />;
   }
 }
 
-
 export default function HomeScreen() {
   const today = new Date();
-  const todayKey = today.toDateString();
-  const { planByDate } = usePlanStore();
-  const todayActivities = planByDate[todayKey] || [];
+  const todayKey = format(today, 'yyyy-MM-dd');
 
-  const startOfWeek = new Date();
-  startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
+  // Week start for the breakdown
+  const weekDates = getWeekDateStrings(today);    // returns Date[]
+  const weekStart = weekDates[0];
 
-  const counts = getWeeklyActivityBreakdown(planByDate, startOfWeek);
-  const activityList = Object.entries(counts).map(([label, count]) => ({
-    label,
-    count,
-    target: count, // you can set dynamic targets later
-    icon: getIconForLabel(label),
-  }));
+  // Queries
+  const { data: todayPlan } = usePlan(todayKey);  // { dateKey, activities: string[] }
+  const { data: breakdown = {}, isLoading, error } = useWeeklyBreakdown(weekStart);
 
+  // Totals for WeekOverviewCard
+  const totals = useMemo(() => {
+    return Object.values(breakdown).reduce(
+      (acc, v) => {
+        acc.scheduled += v.scheduled;
+        acc.completed += v.completed;
+        return acc;
+      },
+      { scheduled: 0, completed: 0 }
+    );
+  }, [breakdown]);
+
+  // Build the props WeekBreakdownCard expects
+  const activitiesForCard = useMemo(
+    () =>
+      Object.entries(breakdown)
+        .map(([label, v]) => ({
+          label,             // e.g., 'RUN'
+          icon: getIconForLabel(label),
+          count: v.completed,
+          target: v.scheduled,
+        }))
+        // optional: hide rows with no plan for the week
+        .filter(item => item.target > 0),
+    [breakdown]
+  );
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -51,34 +74,30 @@ export default function HomeScreen() {
       </View>
 
       <WeekOverviewCard
-        weekNumber={2}
-        completedDays={0}
+        completedActivities={totals.completed}
+        totalPlannedActivities={totals.scheduled}
         totalDistance={0}
         onPress={() => console.log('Week details pressed')}
       />
 
-      {todayActivities.length > 0 ? (
-        <TodaysWorkoutCard activities={todayActivities} date={todayKey} />
+      {todayPlan?.activities?.length ? (
+        <TodaysWorkoutCard date={todayKey} />
       ) : (
         <View style={styles.empty}>
-          <Text style={styles.emptyText}>No workout planned for today.</Text>
+          <Text style={styles.emptyText}>
+            {isLoading ? 'Loading…' : error ? 'Could not load today’s plan.' : 'No workout planned for today.'}
+          </Text>
         </View>
       )}
 
-    <WeekBreakdownCard
-      startDate={new Date()}
-      activities={activityList}
-    />
+      {/* Pass startDate and activities array built above */}
+      <WeekBreakdownCard startDate={weekStart} activities={activitiesForCard} />
     </SafeAreaView>
   );
 }
 
-
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#001f3f',
-  },
+  safeArea: { flex: 1, backgroundColor: '#001f3f' },
   header: {
     paddingTop: 16,
     paddingBottom: 12,
@@ -88,19 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  title: {
-    fontSize: 24,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  empty: {
-    margin: 16,
-    backgroundColor: '#1e1e1e',
-    borderRadius: 12,
-    padding: 16,
-  },
-  emptyText: {
-    color: '#ccc',
-    fontSize: 16,
-  },
+  title: { fontSize: 24, color: '#fff', fontWeight: 'bold' },
+  empty: { margin: 16, backgroundColor: '#1e1e1e', borderRadius: 12, padding: 16 },
+  emptyText: { color: '#ccc', fontSize: 16 },
 });

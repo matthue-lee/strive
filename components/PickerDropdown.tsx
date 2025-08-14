@@ -10,7 +10,7 @@ import {
 
 type DropdownProps<T extends string> = {
   value: T | null; // ✅ allow null
-  options: T[];
+  options: readonly T[];
   onSelect: (val: T) => void;
   labelFormatter?: (val: T | null) => string; // ✅ allow null
 };

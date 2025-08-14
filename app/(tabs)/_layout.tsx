@@ -1,4 +1,4 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
+  import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Tabs } from 'expo-router';
 
