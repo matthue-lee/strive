@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>Strive</string>
-          <string>com.yourco.yourapp</string>
+          <string>com.matth.strive</string>
         </array>
       </dict>
       <dict>

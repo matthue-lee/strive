@@ -1,4 +1,4 @@
-package com.yourco.yourapp
+package com.matth.strive
 
 import android.app.Application
 import android.content.res.Configuration

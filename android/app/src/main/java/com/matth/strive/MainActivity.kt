@@ -1,4 +1,4 @@
-package com.yourco.yourapp
+package com.matth.strive
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
